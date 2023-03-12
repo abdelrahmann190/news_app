@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>31169817671-nnd7i8b0tpr1k9g869ehftv24k8p56cs.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.31169817671-nnd7i8b0tpr1k9g869ehftv24k8p56cs</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDh5UrYkviMTel5wLw1S8MFpzNkbV50pHg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>31169817671</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.newsApp</string>
+	<key>PROJECT_ID</key>
+	<string>nes-news-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nes-news-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:31169817671:ios:487e9fd6533becfb6ad562</string>
+</dict>
+</plist>
