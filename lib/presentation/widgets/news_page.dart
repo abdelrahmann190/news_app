@@ -145,31 +145,32 @@ class NewsPageOpened extends StatelessWidget {
       return VideoPlayerWithChewie(
         videoPlayerLink: singleNews.videoUrl,
       );
+    } else {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return OpenNewsImage(
+              newsImageUrl: singleNews.imageUrl,
+            );
+          }));
+        },
+        child: singleNews.imageUrl != null
+            ? FadeInImage.assetNetwork(
+                placeholder: 'assets/images/loading.gif',
+                image: singleNews.imageUrl!,
+                imageErrorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'assets/images/image_placeholder.jpg',
+                    fit: BoxFit.cover,
+                  );
+                },
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                'assets/images/image_placeholder.jpg',
+                fit: BoxFit.cover,
+              ),
+      );
     }
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) {
-          return OpenNewsImage(
-            newsImageUrl: singleNews.imageUrl,
-          );
-        }));
-      },
-      child: singleNews.imageUrl != null
-          ? FadeInImage.assetNetwork(
-              placeholder: 'assets/images/loading.gif',
-              image: singleNews.imageUrl!,
-              imageErrorBuilder: (context, error, stackTrace) {
-                return Image.asset(
-                  'assets/images/image_placeholder.jpg',
-                  fit: BoxFit.cover,
-                );
-              },
-              fit: BoxFit.cover,
-            )
-          : Image.asset(
-              'assets/images/image_placeholder.jpg',
-              fit: BoxFit.cover,
-            ),
-    );
   }
 }

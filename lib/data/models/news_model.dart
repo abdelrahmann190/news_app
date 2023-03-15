@@ -40,5 +40,6 @@ class News {
     category = data['category'];
     content = '';
     videoUrl = data['video_url'] ?? '';
+    id = data['creator'].toString() + data['pubDate'].toString();
   }
 }

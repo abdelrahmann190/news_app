@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import '../../buisness_logic/cubit/bookmarks_cubit/bookmarks_cubit.dart';
@@ -77,6 +75,8 @@ class _BookMarksPageState extends State<BookMarksPage> {
           Expanded(
             flex: 4,
             child: Container(
+              alignment: Alignment.topLeft,
+              width: double.infinity,
               padding: const EdgeInsets.only(
                 left: 20,
                 top: 20,
@@ -91,21 +91,31 @@ class _BookMarksPageState extends State<BookMarksPage> {
   }
 
   Widget buildBookMarkedNewsList() {
+    // setState(() {
+    //   bookmarkedNewsList;
+    // });
     return BlocBuilder<BookmarksCubit, BookmarksState>(
       builder: (context, state) {
         if (state is BookmarksLoaded) {
           bookmarkedNewsList = state.bookMarkedNews;
-          return SizedBox(
-              width: 400,
-              height: 400,
-              child: MainNewsPageCard(
-                mainNewsList: state.bookMarkedNews,
-              ));
+          return bookmarkedNewsList.isEmpty
+              ? emptyPage()
+              : BlocProvider.value(
+                  value: BlocProvider.of<BookmarksCubit>(context),
+                  child: MainNewsPageCard(
+                    isDismissible: true,
+                    mainNewsList: state.bookMarkedNews,
+                  ),
+                );
         } else {
           return showLoadingProgressIndicator(indicatorColor: Colors.black);
         }
       },
     );
+  }
+
+  Widget emptyPage() {
+    return NormalText(text: 'Wow such empty ....');
   }
 
   Widget showLoadingProgressIndicator({required Color indicatorColor}) {

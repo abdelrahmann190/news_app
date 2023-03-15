@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'buisness_logic/bloc/bloc/app_auth_bloc.dart';
+import 'package:news_app/buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
 import 'buisness_logic/cubit/bookmarks_cubit/bookmarks_cubit.dart';
 import 'buisness_logic/cubit/user_data/user_data_cubit.dart';
 import 'presentation/screens/auth/login_page.dart';
@@ -71,7 +71,7 @@ class AppRouter extends StatelessWidget {
             } else if (state is AppAuthStateLoggedOut) {
               return LogInPage();
             } else if (state is AppAuthStateShowUserDataEntryPage) {
-              return UserDataEntryPage();
+              return const UserDataEntryPage();
             } else {
               return const Text('What are you doing here man');
             }

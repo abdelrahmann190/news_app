@@ -141,6 +141,7 @@ class _HomePageState extends State<HomePage> {
                         widget.mainNewsList =
                             state.countryAndCatogeryNewsLoaded;
                         return MainNewsPageCard(
+                          isDismissible: false,
                           mainNewsList: widget.mainNewsList,
                         );
                       } else {

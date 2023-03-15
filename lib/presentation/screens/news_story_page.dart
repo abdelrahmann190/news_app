@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:news_app/buisness_logic/cubit/bookmarks_cubit/bookmarks_cubit.dart';
 import 'package:news_app/data/models/news_model.dart';
 import 'package:news_app/presentation/widgets/news_page.dart';
+import 'package:news_app/presentation/widgets/news_story_page_top_bar.dart';
 import 'package:news_app/presentation/widgets/story_page_bottom_icons_bar.dart';
 import 'package:news_app/presentation/widgets/text_generator.dart';
 
@@ -22,6 +23,7 @@ class NewsStoryPage extends StatefulWidget {
 }
 
 class _NewsStoryPageState extends State<NewsStoryPage> {
+  int currentIndex = 0;
   late bool bookmarked;
 
   IconData bookmarkIconData = CupertinoIcons.bookmark;
@@ -37,6 +39,9 @@ class _NewsStoryPageState extends State<NewsStoryPage> {
   Widget pageViewBuilder(BuildContext mainContext) {
     return PageView.builder(
         onPageChanged: (index) {
+          setState(() {
+            currentIndex = index;
+          });
           checkIfNewsBookmarked(mainContext, index);
         },
         itemCount: widget.topNewsList.length,
@@ -175,6 +180,14 @@ class _NewsStoryPageState extends State<NewsStoryPage> {
                     ),
                   ),
                 ),
+                Positioned(
+                    top: 60,
+                    left: 0,
+                    right: 0,
+                    child: NewsStoryTopBar(
+                      currentIndex: currentIndex,
+                      newsCount: widget.topNewsList.length,
+                    ))
               ],
             ),
           );
