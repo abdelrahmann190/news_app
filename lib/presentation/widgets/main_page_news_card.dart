@@ -23,6 +23,8 @@ class MainNewsPageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         itemCount: mainNewsList.length,
         itemBuilder: (context, index) {
           return isDismissible

@@ -74,15 +74,17 @@ class _BookMarksPageState extends State<BookMarksPage> {
           ),
           Expanded(
             flex: 4,
-            child: Container(
-              alignment: Alignment.topLeft,
-              width: double.infinity,
-              padding: const EdgeInsets.only(
-                left: 20,
-                top: 20,
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.topLeft,
+                width: double.infinity,
+                padding: const EdgeInsets.only(
+                  left: 20,
+                  top: 20,
+                ),
+                color: Colors.white,
+                child: buildBookMarkedNewsList(),
               ),
-              color: Colors.white,
-              child: buildBookMarkedNewsList(),
             ),
           ),
         ],

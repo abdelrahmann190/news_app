@@ -95,63 +95,67 @@ class _HomePageState extends State<HomePage> {
               left: 20,
             ),
             color: Colors.white,
-            child: Column(
-              children: [
-                SizedBox(
-                  width: double.infinity,
-                  height: 40,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: newsCatogeries.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(
-                            () {
-                              currentIndex = index;
-                              context
-                                  .read<MainPageNewsCubit>()
-                                  .getNewsWithCountryCodeAndCategory(
-                                    newsCategory: newsCatogeries[currentIndex],
-                                    countryCode: countryCode,
-                                  );
-                            },
-                          );
-                        },
-                        child: CategoriesListViewItems(
-                          containerColor: currentIndex == index
-                              ? Colors.black
-                              : Colors.black12,
-                          textColor: currentIndex == index
-                              ? Colors.white
-                              : Colors.black,
-                          iconText: newsCatogeries[index],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const Gap(10),
-                SizedBox(
-                  width: double.infinity,
-                  height: 630,
-                  child: BlocBuilder<MainPageNewsCubit, MainPageNewsState>(
-                    builder: (context, state) {
-                      if (state is CountryAndCatogeryNewsLoaded) {
-                        widget.mainNewsList =
-                            state.countryAndCatogeryNewsLoaded;
-                        return MainNewsPageCard(
-                          isDismissible: false,
-                          mainNewsList: widget.mainNewsList,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 40,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: newsCatogeries.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(
+                              () {
+                                currentIndex = index;
+                                context
+                                    .read<MainPageNewsCubit>()
+                                    .getNewsWithCountryCodeAndCategory(
+                                      newsCategory:
+                                          newsCatogeries[currentIndex],
+                                      countryCode: countryCode,
+                                    );
+                              },
+                            );
+                          },
+                          child: CategoriesListViewItems(
+                            containerColor: currentIndex == index
+                                ? Colors.black
+                                : Colors.black12,
+                            textColor: currentIndex == index
+                                ? Colors.white
+                                : Colors.black,
+                            iconText: newsCatogeries[index],
+                          ),
                         );
-                      } else {
-                        return showLoadingProgressIndicator(
-                            indicatorColor: Colors.black);
-                      }
-                    },
+                      },
+                    ),
                   ),
-                ),
-              ],
+                  const Gap(10),
+                  SingleChildScrollView(
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: BlocBuilder<MainPageNewsCubit, MainPageNewsState>(
+                        builder: (context, state) {
+                          if (state is CountryAndCatogeryNewsLoaded) {
+                            widget.mainNewsList =
+                                state.countryAndCatogeryNewsLoaded;
+                            return MainNewsPageCard(
+                              isDismissible: false,
+                              mainNewsList: widget.mainNewsList,
+                            );
+                          } else {
+                            return showLoadingProgressIndicator(
+                                indicatorColor: Colors.black);
+                          }
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -242,6 +246,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget showLoadingProgressIndicator({required Color indicatorColor}) {
     return Container(
+      height: 620,
       alignment: Alignment.center,
       child: CircularProgressIndicator(
         color: indicatorColor,
