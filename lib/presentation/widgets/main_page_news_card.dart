@@ -8,12 +8,13 @@ import 'package:news_app/buisness_logic/cubit/bookmarks_cubit/bookmarks_cubit.da
 import 'package:news_app/data/models/news_model.dart';
 import 'package:news_app/presentation/widgets/text_generator.dart';
 
+import '../../utils/dimensions.dart';
 import 'news_page.dart';
 
 class MainNewsPageCard extends StatelessWidget {
   final bool isDismissible;
   final List<News> mainNewsList;
-  MainNewsPageCard({
+  const MainNewsPageCard({
     Key? key,
     required this.isDismissible,
     required this.mainNewsList,
@@ -35,10 +36,13 @@ class MainNewsPageCard extends StatelessWidget {
       background: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         alignment: Alignment.centerLeft,
-        child: const Icon(
+        child: Icon(
           Icons.delete,
           color: Colors.grey,
-          size: 50,
+          size: ScreenDimensions.getDynamicWidth(
+            context: context,
+            width: 50,
+          ),
         ),
       ),
       secondaryBackground: Container(
@@ -76,7 +80,10 @@ class MainNewsPageCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                width: 200,
+                width: ScreenDimensions.getDynamicWidth(
+                  context: context,
+                  width: 200,
+                ),
                 child: Text(
                   mainNewsList[index].creator.isNotEmpty
                       ? (mainNewsList[index].creator is String
@@ -176,7 +183,10 @@ class MainNewsPageCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 200,
+              width: ScreenDimensions.getDynamicWidth(
+                context: context,
+                width: 200,
+              ),
               child: Text(
                 mainNewsList[index].creator.isNotEmpty
                     ? (mainNewsList[index].creator is String
@@ -194,7 +204,10 @@ class MainNewsPageCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 220,
+                  width: ScreenDimensions.getDynamicWidth(
+                    context: context,
+                    width: 220,
+                  ),
                   child: Text(
                     mainNewsList[index].title,
                     textAlign: mainNewsList[index].language == 'arabic'
@@ -209,8 +222,14 @@ class MainNewsPageCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 100,
-                  height: 100,
+                  width: ScreenDimensions.getDynamicWidth(
+                    context: context,
+                    width: 100,
+                  ),
+                  height: ScreenDimensions.getDynamicHeight(
+                    context: context,
+                    height: 100,
+                  ),
                   child: mainNewsList[index].imageUrl != null
                       ? FadeInImage.assetNetwork(
                           width: double.infinity,

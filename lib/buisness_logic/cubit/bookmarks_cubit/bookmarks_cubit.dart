@@ -31,11 +31,13 @@ class BookmarksCubit extends Cubit<BookmarksState> {
         .collection(_currentUser.uid)
         .doc(id)
         .delete();
+    getNewsBookMark();
   }
 
   void checkIfNewsBookmarked({
     required String id,
   }) async {
+    emit(BookmarksInitial());
     User? _currentUser = FirebaseAuth.instance.currentUser;
     if (_currentUser == null) {
       return;

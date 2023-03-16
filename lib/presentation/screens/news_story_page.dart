@@ -71,7 +71,6 @@ class _NewsStoryPageState extends State<NewsStoryPage> {
                           )
                         : Image.asset(
                             'assets/images/image_placeholder.jpg',
-                            // width: 200,
                             fit: BoxFit.cover,
                           ),
                   ),

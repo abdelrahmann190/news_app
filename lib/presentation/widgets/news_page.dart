@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:news_app/data/models/news_model.dart';
 import 'package:news_app/presentation/widgets/open_news_image.dart';
 import 'package:news_app/presentation/widgets/text_generator.dart';
+import 'package:news_app/utils/dimensions.dart';
 
 import 'video_player.dart';
 
@@ -80,7 +81,10 @@ class NewsPageOpened extends StatelessWidget {
           ),
           SizedBox(
               width: double.infinity,
-              height: 470,
+              height: ScreenDimensions.getDynamicHeight(
+                context: context,
+                height: 460,
+              ),
               child: CustomScrollView(
                 slivers: [
                   buildSilverAppBar(context),
@@ -132,7 +136,10 @@ class NewsPageOpened extends StatelessWidget {
     return SliverAppBar(
       automaticallyImplyLeading: false,
       scrolledUnderElevation: 0,
-      expandedHeight: 200,
+      expandedHeight: ScreenDimensions.getDynamicHeight(
+        context: context,
+        height: 200,
+      ),
       pinned: false,
       stretch: false,
       backgroundColor: Colors.white,
