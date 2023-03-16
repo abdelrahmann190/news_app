@@ -8,7 +8,7 @@ class CustomizableTextField extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final Icon prefixIcon;
-  final Function? onSubmitted;
+  final Function(String)? onSubmitted;
 
   CustomizableTextField({
     super.key,
@@ -23,9 +23,8 @@ class CustomizableTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (value) {
-        onSubmitted;
-      },
+      autofocus: true,
+      onSubmitted: onSubmitted,
       controller: controller,
       obscureText: obscureText,
       obscuringCharacter: '◉',

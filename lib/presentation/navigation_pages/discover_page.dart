@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:news_app/buisness_logic/cubit/main_page_news_cubit/main_page_news_cubit.dart';
+import 'package:news_app/presentation/widgets/main_page_news_card.dart';
 import '../../buisness_logic/cubit/search_news/search_news_dart_cubit.dart';
 import '../widgets/auth/customizable_text_field.dart';
 import '../widgets/text_generator.dart';
@@ -15,58 +15,81 @@ class DiscoverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    dynamic searchNewsOnSubmitted(
+      String searchKeyword,
+    ) {
+      BlocProvider.of<SearchNewsCubit>(context).getNewsWithSearchKeyword(
+        searchKeyword: searchFieldController.text,
+      );
+    }
+
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.only(top: 80, left: 20, right: 10),
-            color: Colors.black,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const BoldText(
-                  text: 'Explore around you',
-                  color: Colors.white,
-                  fontSize: 35,
-                ),
-                const Gap(20),
-                NormalText(
-                  text: formatter,
-                  color: Colors.white70,
-                  fontSize: 17,
-                ),
-                const Gap(40),
-                CustomizableTextField(
-                  controller: searchFieldController,
-                  hintText: 'search news',
-                  obscureText: false,
-                  prefixIcon: const Icon(Icons.search),
-                  fillColor: Colors.white,
-                  onSubmitted: searchNewsOnSubmitter(
-                    context,
-                    searchFieldController.text,
+      resizeToAvoidBottomInset: true,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.only(top: 80, left: 20, right: 10),
+              color: Colors.black,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BoldText(
+                    text: 'Explore around you',
+                    color: Colors.white,
+                    fontSize: 35,
                   ),
-                ),
-                const Gap(20),
-              ],
+                  const Gap(20),
+                  NormalText(
+                    text: formatter,
+                    color: Colors.white70,
+                    fontSize: 17,
+                  ),
+                  const Gap(40),
+                  CustomizableTextField(
+                    controller: searchFieldController,
+                    hintText: 'search news',
+                    obscureText: false,
+                    prefixIcon: const Icon(Icons.search),
+                    fillColor: Colors.white,
+                    onSubmitted: searchNewsOnSubmitted,
+                  ),
+                  const Gap(20),
+                ],
+              ),
             ),
-          ),
-          Container(
-            color: Colors.white,
-          ),
-        ],
+            Container(
+              height: 500,
+              padding: const EdgeInsets.only(
+                left: 20,
+              ),
+              color: Colors.white,
+              child: BlocBuilder<SearchNewsCubit, SearchNewsState>(
+                builder: (context, state) {
+                  if (state is SearchNewsLoaded) {
+                    return MainNewsPageCard(
+                      isDismissible: false,
+                      mainNewsList: state.searchNewsList,
+                    );
+                  } else {
+                    return showLoadingProgressIndicator(
+                        indicatorColor: Colors.black);
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  searchNewsOnSubmitter(
-    BuildContext context,
-    String searchKeyword,
-  ) {
-    BlocProvider.of<SearchNewsCubit>(context).getNewsWithSearchKeyword(
-      searchKeyword: searchKeyword,
+  Widget showLoadingProgressIndicator({required Color indicatorColor}) {
+    return Center(
+      child: CircularProgressIndicator(
+        color: indicatorColor,
+      ),
     );
   }
 }

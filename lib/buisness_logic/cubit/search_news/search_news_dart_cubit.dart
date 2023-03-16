@@ -13,6 +13,9 @@ class SearchNewsCubit extends Cubit<SearchNewsState> {
   void getNewsWithSearchKeyword({
     required String searchKeyword,
   }) {
+    emit(
+      SearchNewsDartInitial(),
+    );
     NewsAPIRepository(newsAPIWebServices: NewsAPIWebServices())
         .getNewsWithSearchKeyword(searchKeyword: searchKeyword)
         .then((newsList) {

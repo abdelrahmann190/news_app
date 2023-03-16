@@ -24,7 +24,7 @@ class News {
     content = json['content'] ?? '';
     language = json['language'] ?? '';
     category = json['category'].toString();
-    id = json['creator'].toString() + json['pubDate'].toString();
+    id = json['pubDate'].toString();
     videoUrl = json['video_url'] ?? '';
   }
 
@@ -40,6 +40,6 @@ class News {
     category = data['category'];
     content = '';
     videoUrl = data['video_url'] ?? '';
-    id = data['creator'].toString() + data['pubDate'].toString();
+    id = data['pubDate'].toString();
   }
 }

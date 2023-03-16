@@ -91,9 +91,9 @@ class _BookMarksPageState extends State<BookMarksPage> {
   }
 
   Widget buildBookMarkedNewsList() {
-    // setState(() {
-    //   bookmarkedNewsList;
-    // });
+    setState(() {
+      bookmarkedNewsList;
+    });
     return BlocBuilder<BookmarksCubit, BookmarksState>(
       builder: (context, state) {
         if (state is BookmarksLoaded) {

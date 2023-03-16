@@ -21,7 +21,8 @@ class NewsAPIWebServices {
     required String searchKeyword,
   }) async {
     dio = Dio(options);
-    Response response = await dio.get('$apiKey$countryCode&q=$searchKeyword');
+    Response response =
+        await dio.get('$apiKey&country=$countryCode&q=$searchKeyword');
     return response.data['results'];
   }
 
