@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../../data/models/news_model.dart';
 import '../../../data/repositories/firebase_firestore_repositories.dart';
 import '../../../data/web_services/cloud_firestore_web_services.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:news_app/buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
+import '../../buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
 import '../widgets/text_generator.dart';
 import '../widgets/bottom_big_button.dart';
 import '../../utils/colors.dart';

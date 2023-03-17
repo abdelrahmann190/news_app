@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:news_app/buisness_logic/cubit/main_page_news_cubit/main_page_news_cubit.dart';
-import 'package:news_app/presentation/widgets/main_page_news_card.dart';
+import '../widgets/main_page_news_card.dart';
 import '../../buisness_logic/cubit/search_news/search_news_dart_cubit.dart';
 import '../widgets/auth/customizable_text_field.dart';
 import '../widgets/text_generator.dart';

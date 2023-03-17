@@ -13,7 +13,7 @@ import 'package:news_app/presentation/widgets/text_generator.dart';
 
 class NewsStoryPage extends StatefulWidget {
   final List<News> topNewsList;
-  NewsStoryPage({
+  const NewsStoryPage({
     Key? key,
     required this.topNewsList,
   }) : super(key: key);

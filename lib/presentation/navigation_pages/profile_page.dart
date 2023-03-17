@@ -10,7 +10,7 @@ import 'package:news_app/presentation/widgets/text_generator.dart';
 
 class ProfilePage extends StatelessWidget {
   final List<UserModel> userData;
-  ProfilePage({
+  const ProfilePage({
     Key? key,
     required this.userData,
   }) : super(key: key);

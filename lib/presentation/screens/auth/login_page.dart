@@ -1,19 +1,15 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:news_app/buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
+import '../../../buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
 import '../../widgets/auth/customizable_text_field.dart';
 import '../../widgets/bottom_big_button.dart';
-import '../../widgets/pop_up_dialoug_message.dart';
 import '../../widgets/text_generator.dart';
 import '../../widgets/top_part_of_auth_pages.dart';
 import '../../../utils/global_key.dart';
-import '../../../utils/strings.dart';
 
 class LogInPage extends StatefulWidget {
-  LogInPage({super.key});
+  const LogInPage({super.key});
 
   @override
   State<LogInPage> createState() => _LogInPage();

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+
 import '../../../data/models/news_model.dart';
 import '../../../data/repositories/news_api_repository.dart';
 import '../../../data/web_services/news_api_web_services.dart';

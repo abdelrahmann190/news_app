@@ -7,7 +7,6 @@ import '../../buisness_logic/cubit/main_page_news_cubit/main_page_news_cubit.dar
 import '../../buisness_logic/cubit/news_cubit/news_cubit.dart';
 import '../../buisness_logic/cubit/search_news/search_news_dart_cubit.dart';
 import '../../buisness_logic/cubit/user_data/user_data_cubit.dart';
-import '../../data/models/user_model.dart';
 import '../navigation_pages/bookmarks_page.dart';
 import '../navigation_pages/discover_page.dart';
 import '../navigation_pages/home_page.dart';

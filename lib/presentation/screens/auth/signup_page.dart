@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:news_app/buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
+import '../../../buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
 import '../../widgets/auth/customizable_text_field.dart';
 import '../../widgets/bottom_big_button.dart';
 import '../../widgets/text_generator.dart';
@@ -9,7 +9,7 @@ import '../../widgets/top_part_of_auth_pages.dart';
 import '../../../utils/global_key.dart';
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();

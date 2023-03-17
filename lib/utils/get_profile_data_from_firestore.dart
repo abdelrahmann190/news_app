@@ -9,6 +9,4 @@ Future<void> getProfileData() async {
 
   // Get data from docs and convert map to List
   final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-
-  print(allData);
 }

@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:geocoding/geocoding.dart';
+
 import '../../buisness_logic/cubit/location_cubit/location_cubit.dart';
+import '../../utils/get_current_location.dart';
 import '../widgets/bottom_big_button.dart';
 import '../widgets/flag_and_country_card.dart';
-import '../widgets/show_country_flag.dart';
 import '../widgets/text_generator.dart';
-import '../../utils/get_current_location.dart';
-import '../../utils/strings.dart';
 
 class LocationPicker extends StatelessWidget {
   String currentLocation = '';

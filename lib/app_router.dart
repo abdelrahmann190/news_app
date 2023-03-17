@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
+
+import 'buisness_logic/bloc/auth_bloc/app_auth_bloc.dart';
 import 'buisness_logic/cubit/bookmarks_cubit/bookmarks_cubit.dart';
 import 'buisness_logic/cubit/user_data/user_data_cubit.dart';
 import 'presentation/screens/auth/login_page.dart';
@@ -10,7 +11,6 @@ import 'presentation/screens/auth/signup_page.dart';
 import 'presentation/screens/auth/user_data_entry_page.dart';
 import 'presentation/screens/main_news_page.dart';
 import 'presentation/screens/splash_page.dart';
-
 import 'presentation/widgets/pop_up_dialoug_message.dart';
 import 'utils/loading/loading_screen.dart';
 
@@ -49,9 +49,9 @@ class AppRouter extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is AppAuthStateShowRegisterPage) {
-              return SignUpPage();
+              return const SignUpPage();
             } else if (state is AppAuthStateShowLogInPage) {
-              return LogInPage();
+              return const LogInPage();
             } else if (state is AppAuthStateShowSplashPage) {
               return const SplashPage();
             } else if (state is AppAuthStateShowMainEntryPage) {
@@ -69,7 +69,7 @@ class AppRouter extends StatelessWidget {
                 child: const MainNewsPage(),
               );
             } else if (state is AppAuthStateLoggedOut) {
-              return LogInPage();
+              return const LogInPage();
             } else if (state is AppAuthStateShowUserDataEntryPage) {
               return const UserDataEntryPage();
             } else {
