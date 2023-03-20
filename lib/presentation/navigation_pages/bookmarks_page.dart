@@ -122,9 +122,12 @@ class _BookMarksPageState extends State<BookMarksPage> {
 
   Widget showLoadingProgressIndicator({required Color indicatorColor}) {
     return Container(
+      height: 550,
       alignment: Alignment.center,
-      child: CircularProgressIndicator(
-        color: indicatorColor,
+      child: Center(
+        child: CircularProgressIndicator(
+          color: indicatorColor,
+        ),
       ),
     );
   }

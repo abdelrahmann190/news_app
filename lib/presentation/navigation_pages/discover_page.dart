@@ -67,9 +67,11 @@ class DiscoverPage extends StatelessWidget {
               child: BlocBuilder<SearchNewsCubit, SearchNewsState>(
                 builder: (context, state) {
                   if (state is SearchNewsLoaded) {
-                    return MainNewsPageCard(
-                      isDismissible: false,
-                      mainNewsList: state.searchNewsList,
+                    return SingleChildScrollView(
+                      child: MainNewsPageCard(
+                        isDismissible: false,
+                        mainNewsList: state.searchNewsList,
+                      ),
                     );
                   } else {
                     return showLoadingProgressIndicator(
